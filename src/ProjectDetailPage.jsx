@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { animate, stagger } from 'animejs';
 import { ArrowLeft, ExternalLink, Github, Calendar, User, Tag, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
+
+const base = process.env.PUBLIC_URL;
 // ─── Project Data ─────────────────────────────────────────────────────────────
 export const PROJECT_DATA = {
   sehati: {
@@ -11,36 +13,29 @@ export const PROJECT_DATA = {
     tagline: 'Maternal Health Monitoring Platform',
     category: 'Healthcare · Mobile',
     type: 'mobile',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200&h=600',
+    image: `${base}/sehati/header.jpg`,
     accent: '#3b82f6',
     year: '2024',
-    role: 'Lead Mobile Developer',
+    role: 'Mobile Developer',
     status: 'Production',
-    description: `A comprehensive maternal health application designed to bridge the gap between patients and healthcare providers. The app enables real-time CTG (cardiotocography) monitoring by streaming fetal heart rate data from a BLE medical device directly into the app.\n\nMothers can track pregnancy milestones, receive push notifications for appointments, and share clinical reports instantly with their ob-gyn. The system was built with an offline-first architecture ensuring reliability in areas with poor connectivity.`,
+    description: `A comprehensive maternal health application designed to bridge the gap between patients and healthcare providers. The app enables real-time TeleCTG monitoring by streaming fetal heart rate data from a BLE medical device directly into the app.\n\nMothers can track pregnancy milestones, receive push notifications for appointments, and share clinical reports instantly with their ob-gyn. The system was built with an offline-first architecture ensuring reliability in areas with poor connectivity.`,
     highlights: [
-      'Real-time BLE data streaming from CTG hardware device',
-      'Offline-first architecture with Supabase background sync',
-      'Role-based access: patient, midwife, and doctor views',
-      'Automated PDF report generation for clinical records',
-      'Push notification reminders for prenatal checkups',
+      'Real-time BLE data streaming from TeleCTG hardware device',
+      'Provide offline functionality with local data caching and sync'
     ],
     gallery: [
-      { url: '/sehati/Screenshot%202026-04-01%20141834.png', caption: 'CTG Monitoring Screen' },
-      { url: '/sehati/Screenshot%202026-04-01%20141913.png', caption: 'Pregnancy Tracker' },
-      { url: '/sehati/Screenshot%202026-04-01%20142025.png', caption: 'Doctor Dashboard' },
-      { url: '/sehati/Screenshot%202026-04-01%20142118.png', caption: 'Report Generation' },
-      { url: '/sehati/Screenshot%202026-04-01%20142206.png', caption: 'Patient Profile' },
-      { url: '/sehati/Screenshot%202026-04-01%20142302.png', caption: 'Health Insights' },
+      { url: `${base}/sehati/home.png`, caption: 'CTG Monitoring Screen' },
+      { url: `${base}/sehati/choose_patient.png`, caption: 'Pregnancy Tracker' },
+      { url: `${base}/sehati/start_telectg.png`, caption: 'Patient Profile' },
+      { url: `${base}/sehati/ctg_start.png`, caption: 'Doctor Dashboard' },
+      { url: `${base}/sehati/input_page.png`, caption: 'Report Generation' },
+      { url: `${base}/sehati/ctg_summary_graph.png`, caption: 'Health Insights' },
     ],
     techStack: [
       { label: 'Flutter', group: 'Mobile' },
-      { label: 'Dart', group: 'Mobile' },
-      { label: 'BLoC', group: 'State Management' },
-      { label: 'BLE (bluetooth_low_energy)', group: 'Hardware' },
-      { label: 'Supabase', group: 'Backend' },
-      { label: 'PostgreSQL', group: 'Database' },
+      { label: 'MobX', group: 'State Management' },
+      { label: 'TeleCTG', group: 'Hardware' },
       { label: 'Firebase FCM', group: 'Notifications' },
-      { label: 'Figma', group: 'Design' },
     ],
   },
   abanggas: {
@@ -49,36 +44,32 @@ export const PROJECT_DATA = {
     tagline: 'On-Demand Gas Delivery Platform',
     category: 'E-Commerce · Logistics',
     type: 'mobile',
-    image: '/abanggas/abanggas_thumbnail.png',
+    image: `${base}/abanggas/abanggas_thumbnail.png`,
     accent: '#f97316',
-    year: '2024',
-    role: 'Full-Stack Mobile Developer',
+    year: '2025',
+    role: 'Lead Flutter Developer / Freelance',
     status: 'Production',
-    description: `An end-to-end e-commerce platform for liquefied petroleum gas delivery. Customers order gas cylinders via the app, track their delivery in real time on a live map, and pay through an integrated digital wallet powered by Doku.\n\nThe platform includes a dedicated driver app with route optimization and a Laravel-powered admin panel for dispatch management and inventory tracking.`,
+    description: `An end-to-end e-commerce platform for liquefied petroleum gas/water delivery. Customers order gas/water via the app, track their delivery, and pay through an integrated digital wallet powered by Doku.`,
     highlights: [
-      'Live order tracking with Google Maps SDK integration',
+      'Search address functionality with Google Maps SDK integration',
       'Doku payment gateway & in-app wallet top-up',
-      'Dedicated driver app with optimized routing',
-      'Laravel admin panel for order dispatch & inventory',
-      'Real-time order status push notifications',
+      'Real-time order status push notifications'
     ],
     gallery: [
-      { url: '/abanggas/Home%20-%20Guest%20Mode.png', caption: 'Home & Order Screen' },
-      { url: '/abanggas/Cari%20agen.png', caption: 'Agent Search' },
-      { url: '/abanggas/Products.png', caption: 'Product Catalog' },
-      { url: '/abanggas/promo%20-%20detail%20_%20with%20t%26c.png', caption: 'Promo Detail' },
-      { url: '/abanggas/status%20pesanan.png', caption: 'Order Status' },
+      { url: `${base}/abanggas/home.png`, caption: 'Home & Order Screen' },
+      { url: `${base}/abanggas/cari_agen.png`, caption: 'Agent Search' },
+      { url: `${base}/abanggas/product.png`, caption: 'Product Catalog' },
+      { url: `${base}/abanggas/promo_with_tnc.png`, caption: 'Promo Detail' },
+      { url: `${base}/abanggas/status_pesanan.png`, caption: 'Order Status' }
     ],
     techStack: [
       { label: 'Flutter', group: 'Mobile' },
-      { label: 'Dart', group: 'Mobile' },
-      { label: 'BLoC', group: 'State Management' },
-      { label: 'Laravel', group: 'Backend' },
-      { label: 'Doku', group: 'Payment' },
-      { label: 'Google Maps SDK', group: 'Services' },
-      { label: 'MySQL', group: 'Database' },
-      { label: 'REST API', group: 'Integration' },
+      { label: 'Doku', group: 'Payment Getway' },
+      { label: 'MobX', group: 'State Management' },
+      { label: 'Google Maps API ', group: 'Maps' },
+      { label: 'Firebase FCM ', group: 'Notifications' },
     ],
+    liveUrl:'https://play.google.com/store/apps/details?id=com.abanggas.customer&hl=id'
   },
   ceosuite: {
     id: 'ceosuite',
@@ -86,7 +77,7 @@ export const PROJECT_DATA = {
     tagline: 'Premium Office Space Booking System',
     category: 'PropTech · Mobile',
     type: 'mobile',
-    image: '/ceo_suite/ceosuite_thumbnail.png',
+    image: '${base}/ceo_suite/ceosuite_thumbnail.png',
     accent: '#8b5cf6',
     year: '2023',
     role: 'Mobile Developer',
@@ -97,15 +88,15 @@ export const PROJECT_DATA = {
       'Midtrans payment gateway with multiple methods',
       'Membership tiers & loyalty points system',
       'Booking history and e-receipt generation',
-      'MobX reactive state for snappy UI updates',
+      'MobX reactive state for snappy UI updates'
     ],
     gallery: [
-      { url: '/ceo_suite/home%20-%20alt%201.png', caption: 'Office Listings' },
-      { url: '/ceo_suite/product%20page.png', caption: 'Room Detail' },
-      { url: '/ceo_suite/booking.png', caption: 'Booking Form' },
-      { url: '/ceo_suite/Booking%20Details.png', caption: 'Booking Details' },
-      { url: '/ceo_suite/success.png', caption: 'Payment Success' },
-      { url: '/ceo_suite/Already%20Sign%20In.png', caption: 'Member Login' },
+      { url: `${base}/ceo_suite/home.png`, caption: 'Office Listings' },
+      { url: `${base}/ceo_suite/profile.png`, caption: 'Member Login' },
+      { url: `${base}/ceo_suite/product_page.png`, caption: 'Room Detail' },
+      { url: `${base}/ceo_suite/booking.png`, caption: 'Booking Form' },
+      { url: `${base}/ceo_suite/booking_detail.png`, caption: 'Booking Details' },
+      { url: `${base}/ceo_suite/success.png`, caption: 'Payment Success' },
     ],
     techStack: [
       { label: 'Flutter', group: 'Mobile' },
@@ -116,6 +107,7 @@ export const PROJECT_DATA = {
       { label: 'Firebase', group: 'Backend' },
       { label: 'Figma', group: 'Design' },
     ],
+    liveUrl:'https://play.google.com/store/apps/details?id=com.ceosuite.application&hl=id'
   },
   rtools: {
     id: 'rtools',
@@ -134,7 +126,7 @@ export const PROJECT_DATA = {
       'Real-time sales and inventory dashboards',
       'Multi-branch support across 100+ stores',
       'BLoC architecture for scalable codebase',
-      'Offline mode with background data sync',
+      'Offline mode with background data sync'
     ],
     gallery: [
       { url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400&h=700', caption: 'Sales Dashboard' },
@@ -150,13 +142,13 @@ export const PROJECT_DATA = {
       { label: 'Laravel', group: 'Backend' },
     ],
   },
-  tokophincon: {
-    id: 'tokophincon',
-    name: 'TokoPhincon',
+  petrokimia: {
+    id: 'petrokimia',
+    name: 'Petrokimia',
     tagline: 'Android E-Commerce Training App',
     category: 'E-Commerce · Android',
     type: 'mobile',
-    image: '/vault/home.png',
+    image: `${base}/petrokimia/logo_promize.jpg`,
     accent: '#ef4444',
     year: '2023',
     role: 'Android Trainee',
@@ -167,12 +159,13 @@ export const PROJECT_DATA = {
       'Product catalog with search, filter, and sort',
       'JWT-based authentication & session management',
       'Cart & checkout with order history',
-      'Retrofit + OkHttp for robust API integration',
+      'Retrofit + OkHttp for robust API integration'
     ],
     gallery: [
-      { url: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=400&h=700', caption: 'Product Catalog' },
-      { url: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=400&h=700', caption: 'Shopping Cart' },
-      { url: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=400&h=700', caption: 'Checkout Flow' },
+      { url: `${base}/petrokimia/logo2.png`, caption: 'Product Catalog' },
+      { url: `${base}/petrokimia/evaluasi_kendala.png`, caption: 'Product Catalog' },
+      { url: `${base}/petrokimia/laporan_harian.png`, caption: 'Shopping Cart' },
+      { url: `${base}/petrokimia/project_material.png`, caption: 'Checkout Flow' },
     ],
     techStack: [
       { label: 'Kotlin', group: 'Android' },
@@ -202,13 +195,81 @@ export const PROJECT_DATA = {
       'Golang microservices for performance-critical paths',
       'AI/LLM research for BI sales forecasting',
       'PostgreSQL with complex multi-join reporting queries',
-      'CI/CD pipeline via Codemagic for automated deploys',
+      'CI/CD pipeline via Codemagic for automated deploys'
     ],
     gallery: [
-      { url: '/vault/home.png', caption: 'API Architecture Overview' },
-      { url: '/vault/booking', caption: 'Analytics Dashboard' },
-      { url: '/vault/pg.png', caption: 'Dealer Management Panel' },
-      { url: '/vault/admin.png', caption: 'Dealer Management Panel' },
+      { url: `${base}/vault/home.png`, caption: 'API Architecture Overview' },
+      { url: `${base}/vault/booking.png`, caption: 'Analytics Dashboard' },
+      { url: `${base}/vault/pg.png`, caption: 'Dealer Management Panel' },
+      { url: `${base}/vault/admin.png`, caption: 'Dealer Management Panel' },
+    ],
+    techStack: [
+      { label: 'Golang', group: 'Backend' },
+      { label: 'Laravel', group: 'Backend' },
+      { label: 'PostgreSQL', group: 'Database' },
+      { label: 'SQL Server', group: 'Database' },
+      { label: 'REST API', group: 'Integration' },
+      { label: 'AI / LLM', group: 'Research' },
+      { label: 'Codemagic CI/CD', group: 'DevOps' },
+      { label: 'Postman', group: 'Tools' }
+    ],
+  },
+   vault: {
+    id: 'vault',
+    name: 'Vault Auto Museum',
+    tagline: 'Museum Visitor Booking and Admin management system',
+    category: 'Ticketing · Front End',
+    type: 'web',
+    image: `${base}/vault/logo.png`, 
+    accent: '#06b6d4',
+    year: '2026',
+    role: 'Fullstack Developer / Freelance',
+    status: 'Production',
+    description: `A web-based ticketing and visitor management system developed for the Vault Automotive Museum. The platform allows visitors to book tickets online, view real-time availability, and receive email notifications for their bookings.\n\nThe admin panel provides museum staff with tools to manage bookings, monitor visitor flow, and generate reports. The system integrates with Doku for payment processing and features an auto substraction mechanism to prevent overbooking.`,
+    highlights: [
+      'Live booking system with real-time quota availability',
+      'Payment gateway integration with Doku for seamless transactions',
+      'Auto substraction of booking quota on failed transactions',
+      'Send email notifications for booking confirmations and reminders'
+    ],
+    gallery: [
+      { url: `${base}/vault/home.png`, caption: 'home' },
+      { url: `${base}/vault/booking.png`, caption: 'booking' },
+      { url: `${base}/vault/pg.png`, caption: 'payment-getway' },
+      { url: `${base}/vault/admin.png`, caption: 'admin' },
+    ],
+    techStack: [
+      { label: 'Supabase', group: 'Backend' },
+      { label: 'React Native', group: 'Frontend' },
+      { label: 'PostgreSQL', group: 'Database' },
+      { label: 'Doku', group: 'Payment Getway' },
+    ],
+    liveUrl: 'https://vaultautomuseum.com',
+  },
+  vaultMobile: {
+    id: 'vaultMobile',
+    name: 'Vault Auto Museum - Front Officer',
+    tagline: 'Ticketing & Visitor Management App',
+    category: 'Ticketing · Front End',
+    type: 'mobile',
+    image: `${base}/vault/logo.png`, 
+    accent: '#06b6d4',
+    year: '2026',
+    role: 'Fullstack Developer / Freelance',
+    status: 'Production',
+    description: `A mobile application designed for front officers at the Vault Automotive Museum to manage ticketing and visitor check-ins. The app integrates with the same backend systems as the main ADMS integration, providing real-time access to booking data, visitor information, and ticket validation.\n\nBuilt with Flutter for cross-platform support, the app features QR code scanning for quick check-ins, a dashboard for managing daily visitors `,
+    highlights: [
+      'High-throughput API bridge between ATPM and ADMS',
+      'Golang microservices for performance-critical paths',
+      'AI/LLM research for BI sales forecasting',
+      'PostgreSQL with complex multi-join reporting queries',
+      'CI/CD pipeline via Codemagic for automated deploys'
+    ],
+    gallery: [
+      { url: `${base}/vault-mobile/home.jpeg`, caption: 'home' },
+      { url: `${base}/vault-mobile/scan.jpeg`, caption: 'scan' },
+      { url: `${base}/vault-mobile/booking.jpeg`, caption: 'booking' },
+      { url: `${base}/vault-mobile/check-in.jpeg`, caption: 'check-in' },
     ],
     techStack: [
       { label: 'Golang', group: 'Backend' },
@@ -221,13 +282,13 @@ export const PROJECT_DATA = {
       { label: 'Postman', group: 'Tools' },
     ],
   },
-   vault: {
-    id: 'vault',
-    name: 'Vault Auto Museum',
+   rpm: {
+    id: 'rpm',
+    name: 'RPM Express',
     tagline: 'Automotive Dealer Management System',
     category: 'Enterprise · Backend',
-    type: 'web',
-    image: '/vault/home.png', 
+    type: 'mobile',
+    image: `${base}/rpm_express/logo.png`, 
     accent: '#06b6d4',
     year: '2024',
     role: 'IT Supervisor / Senior Staff Developer',
@@ -238,13 +299,14 @@ export const PROJECT_DATA = {
       'Golang microservices for performance-critical paths',
       'AI/LLM research for BI sales forecasting',
       'PostgreSQL with complex multi-join reporting queries',
-      'CI/CD pipeline via Codemagic for automated deploys',
+      'CI/CD pipeline via Codemagic for automated deploys'
     ],
     gallery: [
-      { url: '/vault/home.png', caption: 'home' },
-      { url: '/vault/booking.png', caption: 'booking' },
-      { url: '/vault/pg.png', caption: 'payment-getway' },
-      { url: '/vault/admin.png', caption: 'admin' },
+      { url: `${base}/rpm_express/home.png`, caption: 'home' },
+      { url: `${base}/rpm_express/pilih_driver.png`, caption: 'choose_driver' },
+      { url: `${base}/rpm_express/scan.png`, caption: 'scan' },
+      { url: `${base}/rpm_express/detail.png`, caption: 'detail' },
+      { url: `${base}/rpm_express/list.png`, caption: 'list' },
     ],
     techStack: [
       { label: 'Golang', group: 'Backend' },
@@ -256,8 +318,7 @@ export const PROJECT_DATA = {
       { label: 'Codemagic CI/CD', group: 'DevOps' },
       { label: 'Postman', group: 'Tools' },
     ],
-  },
-  
+  }
 };
 
 const groupTech = (stack) =>
@@ -642,18 +703,40 @@ export const ProjectDetailPage = ({ projectId, onBack }) => {
             <div className="mt-8 h-px w-full" style={{ background: `${project.accent}22` }} />
 
             <div className="mt-6 space-y-3">
-              <button className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold"
-                style={{ background: project.accent, color: '#fff' }}
-                onMouseEnter={e => animate(e.currentTarget, { scale: 1.02, duration: 150, ease: 'outQuart' })}
-                onMouseLeave={e => animate(e.currentTarget, { scale: 1, duration: 200, ease: 'outBack' })}>
-                <ExternalLink size={14} /> View Live
-              </button>
-              <button className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold border border-slate-700 text-slate-300 hover:border-slate-500 hover:text-white transition-all"
-                onMouseEnter={e => animate(e.currentTarget, { scale: 1.02, duration: 150, ease: 'outQuart' })}
-                onMouseLeave={e => animate(e.currentTarget, { scale: 1, duration: 200, ease: 'outBack' })}>
-                <Github size={14} /> Source Code
-              </button>
-            </div>
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold"
+                      style={{ background: project.accent, color: '#fff' }}
+                      onMouseEnter={e =>
+                        animate(e.currentTarget, {
+                          scale: 1.02,
+                          duration: 150,
+                          ease: 'outQuart',
+                        })
+                      }
+                      onMouseLeave={e =>
+                        animate(e.currentTarget, {
+                          scale: 1,
+                          duration: 200,
+                          ease: 'outBack',
+                        })
+                      }
+                    >
+                      <ExternalLink size={14} /> View Live
+                    </a>
+                  ) : (
+                    <div
+                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold opacity-30 cursor-not-allowed"
+                      style={{ background: project.accent, color: '#fff' }}
+                    >
+                      <ExternalLink size={14} /> Not Public
+                    </div>
+                  )}
+
+                </div>
           </div>
         </div>
       </div>

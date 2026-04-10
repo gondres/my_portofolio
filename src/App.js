@@ -125,9 +125,11 @@ const Experience = () => {
   const lineRef = useRef(null);
 
   const jobs = [
-    { company: "PT Arista Group", role: "IT Supervisor/ Senior Staff Developer", period: "Jul 2024 - Now", desc: "Developed API integrations between ATPM and internal ADMS systems; conducted AI research for business intelligence." },
-    { company: "PT Ramayana Lestari Sentosa", role: "IT Developer", period: "Nov 2023 - Jun 2024", desc: "Built RTools using BLoC state management and implemented 1-device-1-account security." },
-    { company: "PT Phincon", role: "Android Trainee", period: "Aug 2023 - Oct 2023", desc: "Developed TokoPhincon E-commerce app using Kotlin and Clean Architecture (MVVM)." }
+    { company: "PT Arista Group", role: "Senior Staff Developer", period: "Jul 2024 - Now", desc: "Developed API integrations between ATPM and internal ADMS systems. Conducted AI research for business intelligence. Implement N8N workflows to replace old tech stack" },
+    { company: "Freelance", role: "Full-Stack Developer", period: "Nov 2023 - Now", desc: "Provided freelance development services for various clients, focusing on full-stack solutions." },
+    { company: "PT Ramayana Lestari Sentosa", role: "IT Developer", period: "Nov 2023 - Jun 2024", desc: "Enhance the Rtools Application code structure foundation using BLoC state management. Build feature and bug fixes on Ramayana Web Application using Laravel " },
+    { company: "PT Phincon", role: "Android Bootcamp", period: "Aug 2023 - Oct 2023", desc: "Developed TokoPhincon E-commerce app using Kotlin and Clean Architecture (MVVM)." },
+    { company: "PT Talian Infodinamika", role: "Intern Flutter Developer", period: "Feb 2022 - Jul 2023", desc: "Help team to develop and maintain Talpro (Talian Product) HRIS internal company application, collaborate with UI/UX team and Backend team" }
   ];
 
   useEffect(() => {
@@ -161,7 +163,7 @@ const Experience = () => {
 
   return (
     <section ref={sectionRef} className="py-20 bg-white px-6">
-      <h2 className="text-3xl font-bold text-center mb-12">Professional Experience</h2>
+      <h2 className="text-3xl font-bold text-center mb-12">Developer Journey</h2>
       <div className="max-w-3xl mx-auto space-y-8 relative">
         {/* Animated vertical line */}
         <div
@@ -196,44 +198,51 @@ const Projects = ({ onSelectProject }) => {
       id: 'abanggas',
       name: 'AbangGas',
       tech: 'Flutter · Doku · Laravel',
-      desc: 'E-commerce platform for gas delivery with live tracking and wallet integration.',
-      year: '2024',
+      desc: 'E-commerce platform for gas/water delivery with 5k+ users downloaded ',
+      year: '2025',
     },
     {
       id: 'sehati',
       name: 'Project Sehati',
       tech: 'Flutter · BLE · Supabase',
       desc: 'Healthcare app for maternal health and real-time CTG monitoring via Bluetooth Low Energy.',
-      year: '2024',
+      year: '2025',
     },
     {
       id: 'ceosuite',
       name: 'CEO SUITE',
       tech: 'Flutter · MobX · Midtrans',
       desc: 'Premium office space booking app with integrated payment gateways.',
-      year: '2023',
+      year: '2024',
     },
     {
       id: 'petrokimia',
       name: 'Petrokimia',
       tech: 'Flutter · MobX',
       desc: 'Internal retail operations app with 1-device-1-account security enforcement.',
-      year: '2023',
+      year: '2025',
     },
     {
       id: 'vault',
       name: 'Vault Automotive Museum',
       tech: 'React Native · Supabase ',
       desc: 'API integration layer between ATPM and internal dealer management systems.',
-      year: '2024',
+      year: '2026',
     },
     
     {
-      id: 'vault-mobile',
+      id: 'vaultMobile',
       name: 'Vault Automotive Museum - Front Officer',
       tech: 'Flutter · Supabase ',
       desc: 'API integration layer between ATPM and internal dealer management systems.',
-      year: '2024',
+      year: '2026',
+    },
+    {
+      id: 'rpm',
+      name: 'RPM Express',
+      tech: 'Flutter',
+      desc: 'API integration layer between ATPM and internal dealer management systems.',
+      year: '2025',
     },
     
     {
@@ -305,10 +314,11 @@ const Projects = ({ onSelectProject }) => {
 // ── Gallery ──────────────────────────────────────────────────────────────────
 const Gallery = () => {
   const portfolioItems = [
-    { title: "Vault Automotive Museum", category: "React Native · Supabase", image: "/vault/home.png", description: "Core landing experience for the Vault app ecosystem." },
+    { title: "Vault Automotive Museum", category: "React Native · Supabase", image: "/vault/logo.png", description: "Core landing experience for the Vault app ecosystem." },
     { title: "AbangGas", category: "Flutter · MobX · Doku", image: "/abanggas/abanggas_thumbnail.png", description: "Gas delivery platform with tracking and wallet integration." },
     { title: "CEO SUITE", category: "Flutter · MobX · Midtrans", image: "/ceo_suite/ceosuite_thumbnail.png", description: "Premium office booking app with memberships and payment flow." },
-    { title: "Petrokimia", category: "Flutter · MobX ", image: "/petrokimia/logo.png", description: "Premium office booking app with memberships and payment flow." },
+    { title: "Petrokimia", category: "Flutter · MobX ", image: "/petrokimia/logo_promize.jpg", description: "Premium office booking app with memberships and payment flow." },
+    { title: "RPM", category: "Flutter · MobX ", image: "/rpm_express/logo.png", description: "Premium office booking app with memberships and payment flow." },
   
   ];
 
@@ -434,8 +444,7 @@ const Gallery = () => {
         >
           {/* Edge fades */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-slate-900 to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-slate-900 to-transparent z-10" />
-
+         
           {/* Bento grid: auto-flow columns; each column is 2 grid cols wide */}
           <div
             className="grid gap-5 pr-10"
@@ -463,7 +472,7 @@ const Gallery = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-contain transition-all duration-700 grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-[1.03]"
+                    className="w-full h-full object-contain scale-90 transition-all duration-700 grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
@@ -644,7 +653,7 @@ function App() {
       <Hero />
       <CoreFocus />
       <Experience />
-      <Gallery />
+      {/* <Gallery /> */}
       <section id="projects">
         <Projects onSelectProject={handleSelectProject} />
       </section>
