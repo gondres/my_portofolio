@@ -77,7 +77,7 @@ export const PROJECT_DATA = {
     tagline: 'Premium Office Space Booking System',
     category: 'PropTech · Mobile',
     type: 'mobile',
-    image: '${base}/ceo_suite/ceosuite_thumbnail.png',
+    image: `${base}/ceo_suite/ceosuite_thumbnail.png`,
     accent: '#8b5cf6',
     year: '2023',
     role: 'Mobile Developer',
@@ -553,7 +553,7 @@ export const ProjectDetailPage = ({ projectId, onBack }) => {
   const highlightsRef = useRef([]);
   const tagRefs       = useRef([]);
 
-  useEffect(() => { highlightsRef.current = []; tagRefs.current = []; }, [projectId]);
+  // useEffect(() => { highlightsRef.current = []; tagRefs.current = []; }, [projectId]);
 
   useEffect(() => {
     if (!project) return;
@@ -572,12 +572,35 @@ export const ProjectDetailPage = ({ projectId, onBack }) => {
       if (featuresRef.current) animate(featuresRef.current, { opacity: [0, 1], translateY: [20, 0], duration: 500, ease: 'outExpo' });
     }, 700);
 
-    const t3 = setTimeout(() => {
-      const highlights = highlightsRef.current.filter(Boolean);
-      if (highlights.length > 0) animate(highlights, { opacity: [0, 1], translateX: [-24, 0], duration: 500, delay: stagger(80), ease: 'outExpo' });
-      const tags = tagRefs.current.filter(Boolean);
-      if (tags.length > 0) animate(tags, { opacity: [0, 1], scale: [0.6, 1], duration: 400, delay: stagger(35), ease: 'outBack(2)' });
-    }, 900);
+  const t3 = setTimeout(() => {
+  if (featuresRef.current) {
+    animate(featuresRef.current, { opacity: [0, 1], translateY: [20, 0], duration: 500, ease: 'outExpo' });
+  }
+
+  // Use requestAnimationFrame to ensure refs are populated after render
+  requestAnimationFrame(() => {
+    const highlights = highlightsRef.current.filter(Boolean);
+    if (highlights.length > 0) {
+      animate(highlights, {
+        opacity: [0, 1],
+        translateX: [-24, 0],
+        duration: 500,
+        delay: stagger(80),
+        ease: 'outExpo',
+      });
+    } else {
+      // Fallback: make them visible if animation couldn't run
+      document.querySelectorAll('[data-highlight]').forEach(el => {
+        el.style.opacity = '1';
+      });
+    }
+
+    const tags = tagRefs.current.filter(Boolean);
+    if (tags.length > 0) {
+      animate(tags, { opacity: [0, 1], scale: [0.6, 1], duration: 400, delay: stagger(35), ease: 'outBack(2)' });
+    }
+  });
+}, 900);
 
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [projectId, project]);
