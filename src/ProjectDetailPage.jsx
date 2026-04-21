@@ -45,7 +45,7 @@ export const PROJECT_DATA = {
     category: 'E-Commerce · Logistics',
     type: 'mobile',
     image: `${base}/abanggas/abanggas_thumbnail.png`,
-    accent: '#f97316',
+    accent: '#2B5CAA',
     year: '2025',
     role: 'Lead Flutter Developer / Freelance',
     status: 'Production',
@@ -78,7 +78,7 @@ export const PROJECT_DATA = {
     category: 'PropTech · Mobile',
     type: 'mobile',
     image: `${base}/ceo_suite/ceosuite_thumbnail.png`,
-    accent: '#8b5cf6',
+    accent: '#843030',
     year: '2023',
     role: 'Mobile Developer',
     status: 'Production',
@@ -149,7 +149,7 @@ export const PROJECT_DATA = {
     category: 'E-Commerce · Android',
     type: 'mobile',
     image: `${base}/petrokimia/logo_promize.jpg`,
-    accent: '#ef4444',
+    accent: '#E1BE7B',
     year: '2023',
     role: 'Android Trainee',
     status: 'Training Project',
@@ -221,7 +221,7 @@ export const PROJECT_DATA = {
     category: 'Ticketing · Front End',
     type: 'web',
     image: `${base}/vault/logo.png`, 
-    accent: '#06b6d4',
+    accent: '#2C2C2C',
     year: '2026',
     role: 'Fullstack Developer / Freelance',
     status: 'Production',
@@ -289,7 +289,7 @@ export const PROJECT_DATA = {
     category: 'Enterprise · Backend',
     type: 'mobile',
     image: `${base}/rpm_express/logo.png`, 
-    accent: '#06b6d4',
+    accent: '#0B7575',
     year: '2024',
     role: 'IT Supervisor / Senior Staff Developer',
     status: 'Production',
@@ -486,7 +486,7 @@ const ProjectGallery = ({ project }) => {
     <>
   <div ref={galleryRef} className="w-full max-w-full overflow-hidden">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex items-center gap-4 mb-8 ">
           <h2 className="text-xs font-bold uppercase tracking-widest whitespace-nowrap" style={{ color: project.accent }}>
             {isMobile ? '📱 App Screens' : '🖥️ Interface Preview'}
           </h2>
@@ -611,7 +611,7 @@ export const ProjectDetailPage = ({ projectId, onBack }) => {
   let tagIdx = 0;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-slate-950 text-white font-['IBM_Plex_Mono']">
 
       {/* Back */}
       <div className="fixed top-6 left-6 z-50">
