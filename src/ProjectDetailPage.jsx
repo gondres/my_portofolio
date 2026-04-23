@@ -69,7 +69,7 @@ export const PROJECT_DATA = {
       { label: 'Google Maps API ', group: 'Maps' },
       { label: 'Firebase FCM ', group: 'Notifications' },
     ],
-    liveUrl:'https://play.google.com/store/apps/details?id=com.abanggas.customer&hl=id'
+    liveUrl: 'https://play.google.com/store/apps/details?id=com.abanggas.customer&hl=id'
   },
   ceosuite: {
     id: 'ceosuite',
@@ -107,7 +107,7 @@ export const PROJECT_DATA = {
       { label: 'Firebase', group: 'Backend' },
       { label: 'Figma', group: 'Design' },
     ],
-    liveUrl:'https://play.google.com/store/apps/details?id=com.ceosuite.application&hl=id'
+    liveUrl: 'https://play.google.com/store/apps/details?id=com.ceosuite.application&hl=id'
   },
   rtools: {
     id: 'rtools',
@@ -145,7 +145,7 @@ export const PROJECT_DATA = {
   petrokimia: {
     id: 'petrokimia',
     name: 'Petrokimia',
-    tagline: 'Android E-Commerce Training App',
+    tagline: 'Petrokimia Project Management Apps',
     category: 'E-Commerce · Android',
     type: 'mobile',
     image: `${base}/petrokimia/logo_promize.jpg`,
@@ -153,13 +153,14 @@ export const PROJECT_DATA = {
     year: '2023',
     role: 'Android Trainee',
     status: 'Training Project',
-    description: `A fully-featured Android e-commerce application developed during training at PT Phincon. Built from scratch following Clean Architecture and MVVM principles, the app demonstrates production-level Android development practices.\n\nFeatures include product catalog with search/filter, cart management, user authentication with JWT, and order history. Retrofit handles all REST API communication with proper error handling.`,
+    description: `A production scheduling and quality management platform built for complex manufacturing environments. I contributed to both backend architecture and the development of mobile features used by field operators`,
     highlights: [
-      'Clean Architecture (MVVM) from the ground up',
-      'Product catalog with search, filter, and sort',
-      'JWT-based authentication & session management',
-      'Cart & checkout with order history',
-      'Retrofit + OkHttp for robust API integration'
+      'Project Management: Track and manage multiple projects with detailed overviews, forecasts, materials, documents, issues, obstacles, evaluations, and reports',
+      'Service Request (SR) Management: Submit, track, and manage service requests with approval workflows',
+      'Material Management: Monitor material inventory, track material intake, and manage stock levels',
+      'Document Management: Handle project documents with approval workflows and vendor management',
+      'Issue Tracking: Create, track, and manage project issues with detailed information',
+      'Obstacle Management: Monitor and evaluate project constraints and obstacles (internal and external)'
     ],
     gallery: [
       { url: `${base}/petrokimia/logo2.png`, caption: 'Product Catalog' },
@@ -168,14 +169,10 @@ export const PROJECT_DATA = {
       { url: `${base}/petrokimia/project_material.png`, caption: 'Checkout Flow' },
     ],
     techStack: [
-      { label: 'Kotlin', group: 'Android' },
-      { label: 'MVVM', group: 'Architecture' },
-      { label: 'Clean Architecture', group: 'Architecture' },
-      { label: 'Retrofit', group: 'Networking' },
-      { label: 'Room DB', group: 'Database' },
-      { label: 'Coroutines', group: 'Async' },
-      { label: 'Hilt', group: 'DI' },
-      { label: 'REST API', group: 'Integration' },
+      { label: 'Flutter', group: 'Mobile' },
+      { label: 'MobX', group: 'State Management' },
+      { label: 'Dio', group: 'Networking' },
+      { label: 'Firebase', group: 'Notification' }
     ],
   },
   adms: {
@@ -214,13 +211,13 @@ export const PROJECT_DATA = {
       { label: 'Postman', group: 'Tools' }
     ],
   },
-   vault: {
+  vault: {
     id: 'vault',
     name: 'Vault Auto Museum',
     tagline: 'Museum Visitor Booking and Admin management system',
     category: 'Ticketing · Front End',
     type: 'web',
-    image: `${base}/vault/logo.png`, 
+    image: `${base}/vault/logo.png`,
     accent: '#2C2C2C',
     year: '2026',
     role: 'Fullstack Developer / Freelance',
@@ -252,7 +249,7 @@ export const PROJECT_DATA = {
     tagline: 'Ticketing & Visitor Management App',
     category: 'Ticketing · Front End',
     type: 'mobile',
-    image: `${base}/vault/logo.png`, 
+    image: `${base}/vault/logo.png`,
     accent: '#06b6d4',
     year: '2026',
     role: 'Fullstack Developer / Freelance',
@@ -282,24 +279,24 @@ export const PROJECT_DATA = {
       { label: 'Postman', group: 'Tools' },
     ],
   },
-   rpm: {
+  rpm: {
     id: 'rpm',
     name: 'RPM Express',
     tagline: 'Automotive Dealer Management System',
     category: 'Enterprise · Backend',
     type: 'mobile',
-    image: `${base}/rpm_express/logo.png`, 
+    image: `${base}/rpm_express/logo.png`,
     accent: '#0B7575',
     year: '2024',
     role: 'IT Supervisor / Senior Staff Developer',
     status: 'Production',
-    description: `A large-scale API integration layer connecting ATPM (Agen Tunggal Pemegang Merek) manufacturer systems with PT Arista Group's internal Automotive Dealer Management System. Built with Golang for high-throughput, low-latency data exchange.\n\nAlso conducted internal AI research for business intelligence features, exploring LLM-based insights for sales forecasting and inventory prediction.`,
+    description: `The RPM Express mobile application is a cutting-edge mobile app built using the Flutter framework. This application revolutionizes the way shipments are managed, providing a seamless and efficient experience for businesses.
+With this Application, businesses can easily track, manage, and monitor their pickup goods . It offers a comprehensive suite of features that streamline the entire pickup process, saving time and resources.
+`,
     highlights: [
-      'High-throughput API bridge between ATPM and ADMS',
-      'Golang microservices for performance-critical paths',
-      'AI/LLM research for BI sales forecasting',
-      'PostgreSQL with complex multi-join reporting queries',
-      'CI/CD pipeline via Codemagic for automated deploys'
+      'Customer: Booking pickup, timeline package history',
+      'Driver: Receive customer order, update package detail, create barcode per package',
+      'Checker: Receive package from driver, check the details of package'
     ],
     gallery: [
       { url: `${base}/rpm_express/home.png`, caption: 'home' },
@@ -309,14 +306,9 @@ export const PROJECT_DATA = {
       { url: `${base}/rpm_express/list.png`, caption: 'list' },
     ],
     techStack: [
-      { label: 'Golang', group: 'Backend' },
-      { label: 'Laravel', group: 'Backend' },
-      { label: 'PostgreSQL', group: 'Database' },
-      { label: 'SQL Server', group: 'Database' },
-      { label: 'REST API', group: 'Integration' },
-      { label: 'AI / LLM', group: 'Research' },
-      { label: 'Codemagic CI/CD', group: 'DevOps' },
-      { label: 'Postman', group: 'Tools' },
+      { label: 'Flutter', group: 'Mobile' },
+      { label: 'Firebase', group: 'Notification' },
+
     ],
   }
 };
@@ -484,7 +476,7 @@ const ProjectGallery = ({ project }) => {
 
   return (
     <>
-  <div ref={galleryRef} className="w-full max-w-full overflow-hidden">
+      <div ref={galleryRef} className="w-full max-w-full overflow-hidden">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8 ">
           <h2 className="text-xs font-bold uppercase tracking-widest whitespace-nowrap" style={{ color: project.accent }}>
@@ -498,34 +490,34 @@ const ProjectGallery = ({ project }) => {
 
         {isMobile ? (
           /* Phone frames — scrollable row */
-         <div
-        className="flex w-full max-w-full gap-6 overflow-x-auto overflow-y-hidden pb-4 scroll-smooth"
-        style={{
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
-            WebkitOverflowScrolling: 'touch'
-        }}
-        >
-        {project.gallery.map((item, i) => (
-            <div
-            key={i}
-            ref={el => { frameRefs.current[i] = el; }}
-            className="flex-shrink-0"
-            style={{ width: 160 }}
-            >
-            <PhoneFrame
-                src={item.url}
-                caption={item.caption}
-                onClick={() => setLightboxIdx(i)}
-            />
-            </div>
-        ))}
-        </div>
+          <div
+            className="flex w-full max-w-full gap-6 overflow-x-auto overflow-y-hidden pb-4 scroll-smooth"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
+            {project.gallery.map((item, i) => (
+              <div
+                key={i}
+                ref={el => { frameRefs.current[i] = el; }}
+                className="flex-shrink-0"
+                style={{ width: 160 }}
+              >
+                <PhoneFrame
+                  src={item.url}
+                  caption={item.caption}
+                  onClick={() => setLightboxIdx(i)}
+                />
+              </div>
+            ))}
+          </div>
         ) : (
           /* Browser frames — stacked */
           <div className="space-y-5">
             {project.gallery.map((item, i) => (
-              <div key={i} ref={el => { frameRefs.current[i] = el; }} style={{  }}>
+              <div key={i} ref={el => { frameRefs.current[i] = el; }} style={{}}>
                 <BrowserFrame src={item.url} caption={item.caption} accent={project.accent} onClick={() => setLightboxIdx(i)} />
               </div>
             ))}
@@ -544,14 +536,14 @@ const ProjectGallery = ({ project }) => {
 export const ProjectDetailPage = ({ projectId, onBack }) => {
   const project = PROJECT_DATA[projectId];
 
-  const heroRef       = useRef(null);
-  const titleRef      = useRef(null);
-  const metaRef       = useRef(null);
-  const overviewRef   = useRef(null);
-  const featuresRef   = useRef(null);
-  const techColRef    = useRef(null);
+  const heroRef = useRef(null);
+  const titleRef = useRef(null);
+  const metaRef = useRef(null);
+  const overviewRef = useRef(null);
+  const featuresRef = useRef(null);
+  const techColRef = useRef(null);
   const highlightsRef = useRef([]);
-  const tagRefs       = useRef([]);
+  const tagRefs = useRef([]);
 
   // useEffect(() => { highlightsRef.current = []; tagRefs.current = []; }, [projectId]);
 
@@ -572,35 +564,35 @@ export const ProjectDetailPage = ({ projectId, onBack }) => {
       if (featuresRef.current) animate(featuresRef.current, { opacity: [0, 1], translateY: [20, 0], duration: 500, ease: 'outExpo' });
     }, 700);
 
-  const t3 = setTimeout(() => {
-  if (featuresRef.current) {
-    animate(featuresRef.current, { opacity: [0, 1], translateY: [20, 0], duration: 500, ease: 'outExpo' });
-  }
+    const t3 = setTimeout(() => {
+      if (featuresRef.current) {
+        animate(featuresRef.current, { opacity: [0, 1], translateY: [20, 0], duration: 500, ease: 'outExpo' });
+      }
 
-  // Use requestAnimationFrame to ensure refs are populated after render
-  requestAnimationFrame(() => {
-    const highlights = highlightsRef.current.filter(Boolean);
-    if (highlights.length > 0) {
-      animate(highlights, {
-        opacity: [0, 1],
-        translateX: [-24, 0],
-        duration: 500,
-        delay: stagger(80),
-        ease: 'outExpo',
-      });
-    } else {
-      // Fallback: make them visible if animation couldn't run
-      document.querySelectorAll('[data-highlight]').forEach(el => {
-        el.style.opacity = '1';
-      });
-    }
+      // Use requestAnimationFrame to ensure refs are populated after render
+      requestAnimationFrame(() => {
+        const highlights = highlightsRef.current.filter(Boolean);
+        if (highlights.length > 0) {
+          animate(highlights, {
+            opacity: [0, 1],
+            translateX: [-24, 0],
+            duration: 500,
+            delay: stagger(80),
+            ease: 'outExpo',
+          });
+        } else {
+          // Fallback: make them visible if animation couldn't run
+          document.querySelectorAll('[data-highlight]').forEach(el => {
+            el.style.opacity = '1';
+          });
+        }
 
-    const tags = tagRefs.current.filter(Boolean);
-    if (tags.length > 0) {
-      animate(tags, { opacity: [0, 1], scale: [0.6, 1], duration: 400, delay: stagger(35), ease: 'outBack(2)' });
-    }
-  });
-}, 900);
+        const tags = tagRefs.current.filter(Boolean);
+        if (tags.length > 0) {
+          animate(tags, { opacity: [0, 1], scale: [0.6, 1], duration: 400, delay: stagger(35), ease: 'outBack(2)' });
+        }
+      });
+    }, 900);
 
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [projectId, project]);
@@ -726,40 +718,40 @@ export const ProjectDetailPage = ({ projectId, onBack }) => {
             <div className="mt-8 h-px w-full" style={{ background: `${project.accent}22` }} />
 
             <div className="mt-6 space-y-3">
-                  {project.liveUrl ? (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold"
-                      style={{ background: project.accent, color: '#fff' }}
-                      onMouseEnter={e =>
-                        animate(e.currentTarget, {
-                          scale: 1.02,
-                          duration: 150,
-                          ease: 'outQuart',
-                        })
-                      }
-                      onMouseLeave={e =>
-                        animate(e.currentTarget, {
-                          scale: 1,
-                          duration: 200,
-                          ease: 'outBack',
-                        })
-                      }
-                    >
-                      <ExternalLink size={14} /> View Live
-                    </a>
-                  ) : (
-                    <div
-                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold opacity-30 cursor-not-allowed"
-                      style={{ background: project.accent, color: '#fff' }}
-                    >
-                      <ExternalLink size={14} /> Not Public
-                    </div>
-                  )}
-
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold"
+                  style={{ background: project.accent, color: '#fff' }}
+                  onMouseEnter={e =>
+                    animate(e.currentTarget, {
+                      scale: 1.02,
+                      duration: 150,
+                      ease: 'outQuart',
+                    })
+                  }
+                  onMouseLeave={e =>
+                    animate(e.currentTarget, {
+                      scale: 1,
+                      duration: 200,
+                      ease: 'outBack',
+                    })
+                  }
+                >
+                  <ExternalLink size={14} /> View Live
+                </a>
+              ) : (
+                <div
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold opacity-30 cursor-not-allowed"
+                  style={{ background: project.accent, color: '#fff' }}
+                >
+                  <ExternalLink size={14} /> Not Public
                 </div>
+              )}
+
+            </div>
           </div>
         </div>
       </div>

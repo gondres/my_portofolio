@@ -4,12 +4,14 @@ import { HeroSplitReveal } from './animate.js';
 import { AnimatedCursor } from './AnimateCursor';
 import { animate, stagger } from 'animejs';
 import { ProjectDetailPage } from './ProjectDetailPage';
+import { motion } from 'framer-motion';
 
 // ── Hero ────────────────────────────────────────────────────────────────────
 const Hero = () => {
   const nameRef = useRef(null);
   const subContentRef = useRef(null);
   const circlesRef = useRef(null);
+  const base = process.env.PUBLIC_URL;
 
   useEffect(() => {
     if (nameRef.current) HeroSplitReveal(nameRef.current);
@@ -22,7 +24,7 @@ const Hero = () => {
         easing: 'easeOutQuart',
       });
     }
-    
+
     // Animate circles
     if (circlesRef.current) {
       const circles = circlesRef.current.querySelectorAll('circle');
@@ -37,68 +39,45 @@ const Hero = () => {
   }, []);
 
   return (
-    <header className="bg-white text-slate-900 py-24 px-6 font-['IBM_Plex_Mono'] overflow-hidden">
-      <div className="max-w-6xl mx-auto flex items-center justify-between gap-12">
+    <header className="bg-white text-slate-900 py-24 px-6 font-['IBM_Plex_Mono'] overflow-hidden min-h-screen flex items-center">
+      <div className="max-w-6xl mx-auto flex items-center font-['IBM_Plex_Mono'] justify-between gap-12 w-full">
         {/* Left Content */}
-        <div className="flex-1 max-w-md">
+        <div className="flex-1 max-w-lg">
           <h1
             ref={nameRef}
-            className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
+            className="text-6xl md:text-8xl font-bold mb-6 leading-tight"
           >
             Andreas.
           </h1>
+          <p className="text-2xl md:text-3xl text-slate-800 font-semibold mt-4 mb-10 leading-snug">
+            I build apps that power business operations and drive growth, specializing in mobile and backend development.
+          </p>
           <div ref={subContentRef}>
-            {/* <p className="text-sm md:text-base text-slate-700 font-medium mb-6 opacity-0 leading-relaxed">
-              I do Full-stack, Database, Integration
-            </p> */}
-            <p className="text-xs md:text-sm text-slate-500 mb-8 opacity-0 leading-relaxed">
+            <p className="text-sm md:text-lg text-slate-500 mb-10 opacity-0 leading-relaxed">
               Software Developer based in Jakarta, Indonesia
             </p>
             <div className="flex flex-row gap-3 opacity-0">
               <a href="mailto:drez.dev77@gmail.com">
-                <button className="px-4 py-2 border border-blue-600 text-blue-600 text-xs font-semibold rounded hover:bg-blue-50 transition-colors w-fit">
+                <button className="px-6 py-3 border border-blue-600 text-blue-600 text-sm font-semibold rounded hover:bg-blue-50 transition-colors w-fit">
                   Get in touch
                 </button>
               </a>
-              {/* <button className="px-4 py-2 border border-blue-600 text-blue-600 text-xs font-semibold rounded hover:bg-slate-50 transition-colors w-fit">
-                Download my CV
-              </button> */}
             </div>
           </div>
         </div>
-        
-        {/* Right Circles */}
-         <div className="  absolute top-1/3 -translate-y-1/2 -right- w-72 h-72 z-0
-            lg:relative lg:top-auto lg:translate-y-0 lg:right-auto
-            lg:flex-1 lg:flex lg:items-center lg:justify-center lg:h-96 lg:w-auto">
-          <svg
-            ref={circlesRef}
-            className="w-full h-full max-w-sm"
-            viewBox="0 0 400 400"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ overflow: 'visible' }}
-          >
-            {/*
-              cx is pushed far right (e.g. 500) so only the left arc portion
-              is visible within the 400x400 viewBox — matching the reference image
-            */}
-            <circle cx="480" cy="200" r="100"  fill="none" stroke="#475569" strokeWidth="0.8" strokeDasharray="8,6" opacity="0" />
-            <circle cx="480" cy="200" r="150"
-              fill="none" stroke="#64748b" strokeWidth="1.5"
-              strokeDasharray="200 754"
-              opacity="0" />
-              <circle cx="480" cy="200" r="200"
-              fill="none" stroke="#64748b" strokeWidth="0.2 "
-              strokeDasharray="12,6 300"
-              opacity="0" />
-              <circle cx="480" cy="200" r="250"
-              fill="none" stroke="#64748b" strokeWidth="0.4"
-              strokeDasharray="12,6 300"
-              opacity="0" />
-              
-            {/* <circle cx="480" cy="200" r="160"  fill="none" stroke="#64748b" strokeWidth="1" strokeDasharray="12" opacity="0" /> */}
-            {/* <circle cx="480" cy="200" r="220"  fill="none" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="8,6" opacity="0" /> */}
-           </svg>
+        <div className="absolute right-[-30%] top-1/4 -translate-y-1/2 w-72 h-72 z-0
+  lg:relative lg:top-auto lg:right-[-15%] lg:translate-y-0
+  lg:flex-1 lg:flex lg:items-center lg:justify-center
+  lg:w-[800px] lg:h-[800px]"
+        >
+          <motion.img
+            src={`${base}/hero-component.png`}
+            alt="Hero background"
+            className="w-full h-full object-contain opacity-70"
+            style={{ transformOrigin: "center" }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          />
         </div>
       </div>
     </header>
@@ -132,51 +111,51 @@ const HatchDivider = () => (
 );
 
 
- 
+
 const Experience = () => {
-  
-const jobs = [
-  {
-    company: "Arista Group",
-    role: "Senior Staff Development",
-    period: "Jul 2024 - Now",
-    desc: "Developed API integrations between ATPM and internal ADMS systems. Conducted AI research for business intelligence. Implement N8N workflows to replace old tech stack",
-  },
-  {
-    company: "Freelance",
-    role: "Full-Stack Developer",
-    period: "Jul 2024 - Now",
-    desc: "Provided freelance development services for various clients, focusing on full-stack solutions.",
-  },
-  {
-    company: "PT Ramayana Lestari Sentosa",
-    role: "IT Developer",
-    period: "Nov 2023 - Jun 2024",
-    desc: "Enhance the Rtools Application code structure foundation using BLoC state management. Build feature and bug fixes on Ramayana Web Application using Laravel",
-  },
-  {
-    company: "PT Phincon",
-    role: "Android Bootcamp",
-    period: "Aug 2023 - Oct 2023",
-    desc: "Developed TokoPhincon E-commerce app using Kotlin and Clean Architecture (MVVM).",
-  },
-  {
-    company: "PT Talian Infodinamika",
-    role: "Intern Flutter Developer",
-    period: "Feb 2022 - Jul 2023",
-    desc: "Help team to develop and maintain Talpro (Talian Product) HRIS internal company application, collaborate with UI/UX team and Backend team",
-  },
-];
- 
+
+  const jobs = [
+    {
+      company: "Arista Group",
+      role: "Senior Staff Development",
+      period: "Jul 2024 - Now",
+      desc: "Developed API integrations between ATPM and internal ADMS systems. Conducted AI research for business intelligence. Implement N8N workflows to replace old tech stack",
+    },
+    {
+      company: "Freelance",
+      role: "Full-Stack Developer",
+      period: "Jul 2024 - Now",
+      desc: "Provided freelance development services for various clients, focusing on full-stack solutions.",
+    },
+    {
+      company: "PT Ramayana Lestari Sentosa",
+      role: "IT Developer",
+      period: "Nov 2023 - Jun 2024",
+      desc: "Enhance the Rtools Application code structure foundation using BLoC state management. Build feature and bug fixes on Ramayana Web Application using Laravel",
+    },
+    {
+      company: "PT Phincon",
+      role: "Android Bootcamp",
+      period: "Aug 2023 - Oct 2023",
+      desc: "Developed TokoPhincon E-commerce app using Kotlin and Clean Architecture (MVVM).",
+    },
+    {
+      company: "PT Talian Infodinamika",
+      role: "Intern Flutter Developer",
+      period: "Feb 2022 - Jul 2023",
+      desc: "Help team to develop and maintain Talpro (Talian Product) HRIS internal company application, collaborate with UI/UX team and Backend team",
+    },
+  ];
+
   const sectionRef = useRef(null);
   const itemsRef = useRef([]);
- 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
         observer.disconnect();
- 
+
         animate(itemsRef.current.filter(Boolean), {
           opacity: [0, 1],
           translateY: [20, 0],
@@ -187,11 +166,11 @@ const jobs = [
       },
       { threshold: 0.1 }
     );
- 
+
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
- 
+
   return (
     <section
       ref={sectionRef}
@@ -202,7 +181,7 @@ const jobs = [
         <h2 className="text-2xl font-bold mb-12 text-slate-900">
           Developer Journey
         </h2>
- 
+
         <div className="border border-slate-200">
           {jobs.map((job, i) => (
             <div key={i}>
@@ -227,7 +206,7 @@ const jobs = [
                   {job.desc}
                 </p>
               </div>
- 
+
               {/* Hatch divider between cards */}
               {i < jobs.length - 1 && <HatchDivider />}
             </div>
@@ -248,57 +227,84 @@ const Projects = ({ onSelectProject }) => {
       id: 'abanggas',
       name: 'Abang Gas',
       tech: 'Flutter · Doku · Laravel',
-      desc: 'E-commerce platform for gas/water delivery with 5k+ users downloaded ',
       year: '2025',
+      features: [
+        { text: 'Functionaly search address using google map SDK', color: '#3b82f6' },
+        { text: 'Doku wallet integration', color: '#f97316' },
+        { text: 'Real-time order status push notification', color: '#8b5cf6' },
+      ],
     },
     {
       id: 'sehati',
       name: 'Project Sehati',
       tech: 'Flutter · BLE · Supabase',
-      desc: 'Healthcare app for maternal health and real-time CTG monitoring via Bluetooth Low Energy.',
       year: '2025',
+      features: [
+        { text: 'Real-time CTG monitoring via Bluetooth Low Energy', color: '#3b82f6' },
+        { text: 'Maternal health tracking dashboard', color: '#14b8a6' },
+        { text: 'Supabase realtime data sync', color: '#8b5cf6' },
+      ],
     },
     {
       id: 'ceosuite',
       name: 'CEO SUITE',
       tech: 'Flutter · MobX · Midtrans',
-      desc: 'Premium office space booking app with integrated payment gateways.',
       year: '2024',
+      features: [
+        { text: 'Premium office space browsing and booking', color: '#3b82f6' },
+        { text: 'Midtrans payment gateway integration', color: '#f97316' },
+        { text: 'MobX state management architecture', color: '#8b5cf6' },
+      ],
     },
     {
       id: 'petrokimia',
       name: 'Petrokimia',
       tech: 'Flutter · MobX',
-      desc: 'Internal retail operations app with 1-device-1-account security enforcement.',
       year: '2025',
+      features: [
+        { text: 'Manage multiple projects with detailed overviews, forecasts and reports', color: '#3b82f6' },
+        { text: 'Internal operations management', color: '#f97316' },
+        { text: 'MobX state management', color: '#8b5cf6' },
+      ],
     },
     {
       id: 'vault',
       name: 'Vault Automotive Museum',
       tech: 'React Native · Supabase',
-      desc: 'API integration layer between ATPM and internal dealer management systems.',
       year: '2026',
+      features: [
+        { text: 'Booking real time availability', color: '#3b82f6' },
+        { text: 'Supabase backend ', color: '#14b8a6' },
+        { text: 'Payment Gateway with Doku ', color: '#8b5cf6' },
+      ],
     },
     {
       id: 'vaultMobile',
-      name: 'Vault Automotive Museum - Front Officer',
+      name: 'Vault Automotive - Front Officer',
       tech: 'Flutter · Supabase',
-      desc: 'API integration layer between ATPM and internal dealer management systems.',
       year: '2026',
+      features: [
+        { text: 'Front officer check-in and ticketing flow', color: '#3b82f6' },
+        { text: 'Supabase realtime sync', color: '#14b8a6' },
+      ],
     },
     {
       id: 'rpm',
       name: 'RPM Express',
       tech: 'Flutter',
-      desc: 'API integration layer between ATPM and internal dealer management systems.',
       year: '2025',
+      features: [
+        { text: 'Customer: Booking pickup, timeline package history', color: '#3b82f6' },
+        { text: 'Driver: Receive customer order, update package detail, create barcode per package', color: '#f97316' },
+        { text: 'Checker: Receive package from driver, check the details of package', color: '#8b5cf6' },
+      ],
     },
     {
-      id: 'adms',
-      name: 'ADMS Arista',
-      tech: 'Golang · Laravel · PostgreSQL',
-      desc: 'API integration layer between ATPM and internal dealer management systems.',
-      year: '2024',
+      id: 'collaborate',
+      name: "Let's Collaborate",
+      tech: '',
+      year: '2026',
+      features: [],
     },
   ];
 
@@ -320,13 +326,13 @@ const Projects = ({ onSelectProject }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-slate-50 px-6 font-['IBM_Plex_Mono']">
+    <section ref={sectionRef} className="py-16 bg-[#FAFAFA] px-6 font-['IBM_Plex_Mono']">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl font-bold mb-12 text-slate-900">Featured Projects</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {projects.map((p, i) => (
-            i === projects.length - 1 ? (
-             <a href="mailto:drez.dev77@gmail.com" className="block">
+            p.id === 'collaborate' ? (
+              <a href="mailto:drez.dev77@gmail.com" className="block">
                 <div
                   key="collaborate"
                   ref={el => cardRefs.current[i] = el}
@@ -357,13 +363,28 @@ const Projects = ({ onSelectProject }) => {
                 key={p.id}
                 ref={el => cardRefs.current[i] = el}
                 onClick={() => onSelectProject(p.id)}
-                className="bg-white p-6 rounded-lg border border-slate-200 opacity-0 text-left hover:shadow-md transition-shadow"
+                className="bg-white p-5 rounded-lg border border-slate-200 opacity-0 text-left hover:shadow-md transition-shadow flex flex-col gap-3"
               >
-                <p className="text-xs text-blue-600 font-semibold uppercase mb-2">{p.tech}</p>
-                <h3 className="text-lg font-bold text-slate-900 mb-3">{p.name}</h3>
-                <p className="text-xs text-slate-500 leading-relaxed mb-4">{p.desc}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-400 font-medium">{p.year}</span>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900">{p.name}</h3>
+                  <p className="text-xs text-slate-400">{p.year}</p>
+                </div>
+                <hr className="border-slate-100" />
+                <div className="flex flex-wrap gap-2">
+                  {p.tech.split(' · ').map(t => (
+                    <span key={t} className="px-3 py-1 text-xs border border-slate-200 rounded-full text-slate-500">{t}</span>
+                  ))}
+                </div>
+                <ul className="flex flex-col gap-2">
+                  {p.features.map((f, fi) => (
+                    <li key={fi} className="flex items-center gap-2 text-xs text-slate-500">
+                      <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: f.color }} />
+                      {f.text}
+                    </li>
+                  ))}
+                </ul>
+                <hr className="border-slate-100" />
+                <div className="flex justify-end">
                   <span className="text-xs text-blue-600 font-semibold">View Work →</span>
                 </div>
               </button>
@@ -391,7 +412,7 @@ const Skills = () => {
     { category: "Mobile\nDevelopment", items: ["Flutter/Dart"] },
     { category: "Backend & Web", items: ["Golang", "Laravel", "REST API", "Node.js"] },
     { category: "Database &\nCloud", items: ["PostgreSQL", "SQL Server", "Firebase", "Supabase"] },
-    { category: "Tools & DevOps", items: ["CI/CD (Codemagic)", "Github/Gitlab", "Postman", "AI (Cursor)","N8N","Openclaw"] },
+    { category: "Tools & DevOps", items: ["CI/CD (Codemagic)", "Github/Gitlab", "Postman", "AI (Cursor)", "N8N", "Openclaw"] },
     { category: "Whatsapp Integration", items: ["Mekari Qontak", "WuzAPI"] },
     { category: "Payment Integration", items: ["Doku", "Xendit"] },
   ];
@@ -400,7 +421,7 @@ const Skills = () => {
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       observer.disconnect();
-      
+
       if (contentRef.current) {
         const children = Array.from(contentRef.current.children);
         animate(children, {
@@ -422,7 +443,7 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl font-bold mb-2 text-slate-900">Skills & Expertise</h2>
         <p className="text-sm text-slate-600 mb-12 leading-relaxed">Software engineer focused build software solutions that remove operational bottlenecks and improve reliability, choosing the right architecture and technology stack based on the problem, not the trend.</p>
-        
+
         {/* Core Skills */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           {coreSkills.map((skill, i) => {
@@ -523,6 +544,22 @@ function App() {
     }, 100);
   };
 
+  const SectionTransition = ({ children }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        opacity: { duration: 1.2, ease: "easeOut" },
+        y: { duration: 1.2, ease: "easeOut" },
+        scale: { duration: 1.2, ease: "easeOut" },
+        rotate: { duration: 50, repeat: Infinity, ease: "linear" },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+
   if (currentProject) {
     return (
       <>
@@ -533,15 +570,41 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-['IBM_Plex_Mono']">
+    <div
+      className="h-screen overflow-y-scroll font-['IBM_Plex_Mono']"
+      style={{ scrollSnapType: 'y mandatory' }}
+    >
       <AnimatedCursor />
-      <Hero />
-      <section id="projects">
-        <Projects onSelectProject={handleSelectProject} />
+
+      <section style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
+        <SectionTransition>
+          <Hero />
+        </SectionTransition>
       </section>
-      <Skills />
-      <Experience />
-      <Footer />
+
+      <section id="projects" style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
+        <SectionTransition>
+          <Projects onSelectProject={handleSelectProject} />
+        </SectionTransition>
+      </section>
+
+      <section style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
+        <SectionTransition>
+          <Skills />
+        </SectionTransition>
+      </section>
+
+      <section style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
+        <SectionTransition>
+          <Experience />
+        </SectionTransition>
+      </section>
+
+      <section style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
+        <SectionTransition>
+          <Footer />
+        </SectionTransition>
+      </section>
     </div>
   );
 }
