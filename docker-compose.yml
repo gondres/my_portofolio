@@ -6,4 +6,8 @@ services:
     container_name: andreas-portfolio
     ports:
       - "80:80"
+      - "443:443"
     restart: always
+    volumes:
+      - /etc/letsencrypt/live/drez-dev.id/fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro
+      - /etc/letsencrypt/live/drez-dev.id/privkey.pem:/etc/nginx/ssl/privkey.pem:ro
